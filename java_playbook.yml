@@ -17,7 +17,7 @@
     - name: Build Java application using Maven
       command: mvn clean package
       args:
-        chdir: /home/dinesh12/Desktop/asowmiya/springangular-main/user
+        chdir: /home/dinesh12/Desktop/asowmiya/sample2
 
     - name: Create destination folder if not exists
       file:
@@ -26,12 +26,12 @@
 
     - name: Copy jar to destination folder
       copy:
-        src: /home/dinesh12/Desktop/asowmiya/springangular-main/user/target/*.jar
+        src:/home/dinesh12/Desktop/asowmiya/sample2/target/*.jar
         dest: /home/dinesh12/Videos/
         remote_src: yes
 
     - name: (Optional) Run the jar
-      command: java -jar /home/dinesh12/Videos/yourapp.jar
+      command: java -jar /home/dinesh12/Videos/app.jar
       async: 60
       poll: 0
 
