@@ -26,8 +26,8 @@
 
     - name: Copy jar to destination folder
       copy:
-        src:/home/dinesh12/Desktop/asowmiya/sample2/target/*.jar
-        dest:/home/dinesh12/Videos/
+        src: /home/dinesh12/Desktop/asowmiya/sample2/target/*.jar
+        dest: /home/dinesh12/Videos/
         remote_src: yes
 
     - name: (Optional) Run the jar
