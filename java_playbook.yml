@@ -1,8 +1,7 @@
 - name: Build Java App and Move Jar
-  hosts: all
+  hosts: webserver
   become: yes
   tasks:
-
     - name: Ensure Java is installed
       apt:
         name: openjdk-17-jdk
