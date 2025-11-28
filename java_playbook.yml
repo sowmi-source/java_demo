@@ -15,7 +15,7 @@
       when: ansible_os_family == "Debian"
 
     - name: Build Java application using Maven
-      command: mvn clean package
+      command: mvn clean install
       args:
         chdir: /home/dinesh12/Desktop/asowmiya/sample2
 
