@@ -31,7 +31,7 @@
         remote_src: yes
 
     - name: (Optional) Run the jar
-      command: java -jar /home/dinesh12/Videos/app.jar
+      command: java -jar /home/dinesh12/Videos/*.jar
       async: 60
       poll: 0
 
