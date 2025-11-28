@@ -1,0 +1,38 @@
+- name: Build Java App and Move Jar
+  hosts: all
+  become: yes
+  tasks:
+
+    - name: Ensure Java is installed
+      apt:
+        name: openjdk-17-jdk
+        state: present
+      when: ansible_os_family == "Debian"
+
+    - name: Ensure Maven is installed
+      apt:
+        name: maven
+        state: present
+      when: ansible_os_family == "Debian"
+
+    - name: Build Java application using Maven
+      command: mvn clean package
+      args:
+        chdir: /home/dinesh12/Desktop/asowmiya/springangular-main/user
+
+    - name: Create destination folder if not exists
+      file:
+        path: /home/dinesh12/Videos
+        state: directory
+
+    - name: Copy jar to destination folder
+      copy:
+        src: /home/dinesh12/Desktop/asowmiya/springangular-main/user/target/*.jar
+        dest: /home/dinesh12/Videos/
+        remote_src: yes
+
+    - name: (Optional) Run the jar
+      command: java -jar /home/dinesh12/Videos/yourapp.jar
+      async: 60
+      poll: 0
+
