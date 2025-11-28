@@ -1,5 +1,5 @@
 - name: Build Java App and Move Jar
-  hosts: webserver
+  hosts: all
   become: yes
   tasks:
     - name: Ensure Java is installed
