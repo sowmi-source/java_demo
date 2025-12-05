@@ -24,10 +24,10 @@
         path: /home/dinesh12/Videos
         state: directory
 
-    - name: Copy jar to destination folder
+    - name: Copy built JAR files to destination folder
       copy:
-        src: /home/dinesh12/Desktop/asowmiya/sample2/target
+        src: "{{ item }}"
         dest: /home/dinesh12/Videos/
         remote_src: yes
-
-  
+      with_fileglob:
+        - /home/dinesh12/Desktop/asowmiya/sample2/target/*.jar
